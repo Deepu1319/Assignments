@@ -1,0 +1,27 @@
+public class Duplicate {
+   public static void main(String args[]){
+
+       String str = "Hi all all all good morning.";
+       String[] words = str.split(" ");
+       int rwc = 1;
+
+       for(int i=0;i<words.length;i++)
+       {
+           for(int j=i+1;j<words.length;j++)
+           {
+               if(words[i].equals(words[j]))
+               
+                   rwc = rwc+1;
+                   words[j]="0";
+
+               }
+           }
+           if(words[i]!="0")
+               System.out.println(words[i]+"============="+rwc);
+           rwc = 1;
+
+       }
+
+}
+}
+

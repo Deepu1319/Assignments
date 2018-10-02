@@ -1,0 +1,13 @@
+public class ReverseString {
+   public static void main(String[] args) {
+       StringBuffer string= new StringBuffer("heellllo newers");
+       System.out.println("Original string is "+string);
+       System.out.println("Reversed string is "+string.reverse());
+       string.replace(4, 9,"");
+       System.out.println("Starting from index 4 till index 9 and replacing with blank" +"");
+       System.out.println(string);
+
+   }
+
+}
+

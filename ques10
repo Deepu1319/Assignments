@@ -1,0 +1,46 @@
+class Overloading1 {
+
+   public static void main(String[] args) {
+       Overloading1 o1 = new Overloading1();
+       System.out.println(o1.add(4, 29));
+       System.out.println(o1.add(4.858494, 9.889));
+       System.out.println(o1.multiply(4, 700));
+       System.out.println(o1.multiply(4.65f, 70.0f));
+       System.out.println(o1.concatStrings("hii ", "Divya"));
+       System.out.println(o1.concatStrings("Ok", " lets", " work"));
+
+   }
+
+   int add(int a, int b)
+   {
+       return a+b;
+   }
+
+   double add(double a, double b)
+   {
+       return a+b;
+   }
+
+   float multiply(float a, float b)
+   {
+       return a*b;
+   }
+
+   int multiply(int a, int b)
+   {
+       return a*b;
+   }
+
+   String concatStrings(String stringOne, String stringTwo)
+   {
+       return stringOne.concat(stringTwo);
+   }
+
+   String concatStrings(String stringOne, String stringTwo, String stringThree)
+   {
+       return stringOne.concat(stringTwo).concat(stringThree);
+   }
+
+
+}
+

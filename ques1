@@ -1,0 +1,12 @@
+public class ReplaceString {
+   public static void main(String args[]) {
+       String s1 = new String("Welcome to bootcamp");
+       System.out.println("Original string:  " + s1);
+       System.out.println("String after replacing bootcamp with TTN:   " + s1.replace("bootcamp", "TTN"));
+       String s2 = s1.replaceFirst("e", "7");
+       System.out.println(s2);
+       String s3 = s1.replaceAll("o", "9");
+       System.out.println(s3);
+   }
+}
+
