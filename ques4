@@ -1,0 +1,23 @@
+public class SingletonClass {
+   private static SingletonClass myObj;
+   private SingletonClass(){}
+   public static SingletonClass getInstance(){
+       if(myObj == null){
+           myObj = new SingletonClass();
+       }
+       return myObj;
+   }
+
+   public void getSomeThing(){
+
+       System.out.println("Hello This Is Singleton Class");
+               System.out.println("------------------------");
+
+   }
+
+   public static void main(String a[]){
+       SingletonClass st = SingletonClass.getInstance();
+       st.getSomeThing();
+   }
+}
+
