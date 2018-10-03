@@ -1,25 +1,52 @@
-public class CommonElements {
+public class Employee1 implements Cloneable {
+    private int id;
+    private String name;
+    private Double salary;
+    private String designation;
 
-   public static void main(String[] args) {
-       int[] arrayOne = {1, 2, 3, 4, 5, 6, 7};
-       int[] arrayTwo = {1, 7, 8, 9, 2, 4};
-       System.out.println("First array:");
-       for (int k = 0; k < arrayOne.length; k++) {
-           System.out.print(arrayOne[k]);
-       }
-       System.out.println("\nsecond array:");
-       for (int k = 0; k < arrayTwo.length; k++) {
-           System.out.print(arrayTwo[k]);
-       }
-       System.out.println("\nCommon elements are:");
-       for (int i = 0; i < arrayOne.length; i++) {
-           for (int j = 0; j < arrayTwo.length; j++) {
-               if (arrayOne[i] == arrayTwo[j]) {
-                   System.out.print(+arrayOne[i] + " ");
-               }
-           }
-       }
-   }
+    Employee1(int empId, String empName, Double empSalary, String empDesignation)
+    {
+        this.id = empId;
+        this.name = empName;
+        this.salary = empSalary;
+        this.designation = empDesignation;
+    }
+
+    Employee1(Employee1 emp)
+    {
+        this.id = emp.id;
+        this.name = emp.name;
+        this.salary = emp.salary;
+        this.designation = emp.designation;
+    }
+
+    public Object clone()throws CloneNotSupportedException{
+        return super.clone();
+    }
+
+    public static void main(String[] args) {
+        Employee1 employeeOne = new Employee1(1, "Divya", 15000.5, "JVM");
+        Employee1 employeeTwo = new Employee1(employeeOne);
+        System.out.println(employeeOne.id+" "+employeeOne.name + " "+" "+employeeOne.designation +" "+ employeeOne.designation);
+        System.out.println("Data from copy constructor");
+        System.out.println(employeeTwo.id+" "+employeeTwo.name + " "+" "+employeeTwo.designation +" "+ employeeTwo.designation);
+
+        try
+        {
+            Employee1 employeeThree = new Employee1(2, "Vaishnavi", 12000.56, "JVM");
+            Employee1 employeeFour = (Employee1) employeeThree.clone();
+            System.out.println(employeeThree.id+" "+employeeThree.name + " "+" "+employeeThree.designation +" "+ employeeThree.designation);
+            System.out.println("Data from clonable interface");
+            System.out.println(employeeFour.id+" "+employeeFour.name + " "+" "+employeeFour.designation +" "+ employeeFour.designation);
+        }
+
+        catch(CloneNotSupportedException cns)
+        {
+            System.out.println("Exception caught" +cns);
+
+        }
+
+    }
+
 }
-
 

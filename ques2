@@ -1,27 +1,33 @@
-public class Duplicate {
-   public static void main(String args[]){
+import java.util.Scanner;
 
-       String str = "Hi all all all good morning.";
-       String[] words = str.split(" ");
-       int rwc = 1;
-
-       for(int i=0;i<words.length;i++)
+public class SortedString {
+   public static void main(String...args)
+   {
+       char temp;
+       String SortedString="";
+       Scanner ipString=new Scanner(System.in);
+       System.out.println("enter string");
+       String str=ipString.next();
+       ipString.close();
+       char[] ch=str.toCharArray();
+       for (int i=0;i<ch.length;i++)
        {
-           for(int j=i+1;j<words.length;j++)
+           for (int j=0;j<ch.length;j++)
            {
-               if(words[i].equals(words[j]))
-               
-                   rwc = rwc+1;
-                   words[j]="0";
+               if(ch[i]<ch[j])
+               {
+                   temp=ch[i];
+                   ch[i]=ch[j];
+                   ch[j]=temp;
 
                }
            }
-           if(words[i]!="0")
-               System.out.println(words[i]+"============="+rwc);
-           rwc = 1;
-
        }
-
-}
+       for(int k=0;k<ch.length;k++)
+       {
+           SortedString=SortedString+ch[k];
+       }
+       System.out.println("SortedString="+SortedString);
+   }
 }
 

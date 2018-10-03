@@ -1,46 +1,48 @@
-class Overloading1 {
-
-   public static void main(String[] args) {
-       Overloading1 o1 = new Overloading1();
-       System.out.println(o1.add(4, 29));
-       System.out.println(o1.add(4.858494, 9.889));
-       System.out.println(o1.multiply(4, 700));
-       System.out.println(o1.multiply(4.65f, 70.0f));
-       System.out.println(o1.concatStrings("hii ", "Divya"));
-       System.out.println(o1.concatStrings("Ok", " lets", " work"));
-
-   }
-
-   int add(int a, int b)
+class Customer
+{
+   int tokenNo;
+   int foodPrice;
+   String foodName;
+   public Customer(int fp, String fn)
    {
-       return a+b;
+       foodPrice = fp;
+       foodName = fn;
+       System.out.println("order cost::" + foodPrice);
+       System.out.println("order type::" + foodName);
    }
-
-   double add(double a, double b)
+   public void getToken(int tokenno)
    {
-       return a+b;
+       this.tokenNo = tokenNo;
    }
-
-   float multiply(float a, float b)
+}
+class Cashier
+{
+   int Orderid;
+   public Cashier (int Orderid)
    {
-       return a*b;
+       this.Orderid=Orderid;
+       System.out.println("order id ::"+Orderid);
    }
-
-   int multiply(int a, int b)
+   public void givesToken()
    {
-       return a*b;
+       System.out.println("order placed");
    }
+}
+class Barista
+{
+   public void prepare_coffee(){
+       System.out.println("coffee is prepared"); }
 
-   String concatStrings(String stringOne, String stringTwo)
+}
+class CoffeeShop
+{
+   public static void main(String[] args)
    {
-       return stringOne.concat(stringTwo);
+       Barista b = new Barista();
+       Customer c=new Customer(100,"coffee");
+       Cashier c1=new Cashier(101);
+       b.prepare_coffee();
+       c1.givesToken();
    }
-
-   String concatStrings(String stringOne, String stringTwo, String stringThree)
-   {
-       return stringOne.concat(stringTwo).concat(stringThree);
-   }
-
-
 }
 

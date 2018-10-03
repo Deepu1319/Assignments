@@ -1,33 +1,58 @@
-public class HouseDetails {
-        HouseType type;
-        Double price;
-        String location;
 
-        HouseDetails(Double price, String location)
-        {
-            this.price = price;
-            this.location = location;
-        }
-        Double getPrice()
-        {
-            return this.price;
-        }
+public class ChairTable
+{
+   public static void main(String[] args)
+   {
+       WoodenTableAndChair Wooden = new WoodenTableAndChair();
+       System.out.println("----------WOODEN MATERIALS-----------------------");
+       System.out.println(Wooden.color = "COLOR IS BROWN");
+       System.out.println(Wooden.cost="COST IS 10K");
+       Wooden.fire();
+       Wooden.stress();
+       System.out.println("-----------------------------------------------");
+       MetalTableAndChair Metal = new MetalTableAndChair();
+       System.out.println("----------METAL MATERIALS-----------------------");
+       System.out.println(Metal.color ="COLOR IS BLACK");
+       System.out.println(Metal.cost="COST IS 20K");
+       Metal.fire();
+       Metal.stress();
+   }
+}
+abstract class Furniture
+{
+   String cost;
+   String color;
+   public void stress()
+   {
+       System.out.println("Stress is High or Low");
+   }
+   public void fire()
+   {
+       System.out.println("Fire Safe or Not");
+   }
+}
+class WoodenTableAndChair extends Furniture{
+   @Override
+   public void fire()
+   {
+       System.out.println("Not Fire Safe Compare To Metal Product");
+   }
+   @Override
+   public void stress()
+   {
+       System.out.println("Stress is Low Compare To Metal Product");
+   }
+}
+class MetalTableAndChair extends Furniture
+{
+   @Override
+   public void fire()
+   {
+       System.out.println("Fire Safe Compare To Metal Product");
+   }
+   @Override
+   public void stress()
+   {
+       System.out.println("Stress is High Compare To Metal Product");  }   }
 
-        enum HouseType{ SMALL, BIG, HUGE};
-        public static void main(String[] args) {
-            HouseDetails house1 = new HouseDetails(3000.89,"Chandigarh");
-            house1.type = HouseType.SMALL;
-            HouseDetails house2 = new HouseDetails(40000.78,"Goa");
-            house2.type = HouseType.BIG;
-            HouseDetails house3 = new HouseDetails(5000000.7,"Malaysia");
-            house3.type = HouseType.HUGE;
-            System.out.println("Price of house is "+house1.getPrice());
-            System.out.println("Type of house is "+house1.type);
-            System.out.println("Price of house is "+house2.getPrice());
-            System.out.println("Type of house is "+house2.type);
-            System.out.println("Price of house is "+house3.getPrice());
-            System.out.println("Type of house is "+house3.type);
-        }
-
-    }
 

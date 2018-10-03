@@ -1,57 +1,24 @@
-class bank{
-   String name;
-   int rof;
-   bank(){
-       name="Bank";
-       rof=0;
-   }
-   void getDetails(){
-       System.out.println("Name : "+name+" , Rate of Interest : "+rof);
-   }
-}
-class SBI extends bank{
-   String name;
-   int rof;
-   SBI(){
-       name="SBI";
-       rof=8;
-   }
-   void getDetails(){
-       System.out.println("Name : "+name+" , Rate of Interest : "+rof);
-   }
-}
-class BOI extends bank{
-   String name;
-   int rof;
-   BOI(){
-       name="BOI";
-       rof=10;
-   }
-   void getDetails(){
-       System.out.println("Name : "+name+" ,Rate of Interest : "+rof);
-   }
-}
-class ICICI extends bank{
-   String name;
-   int rof;
-   ICICI(){
-       name="ICICI";
-       rof=12;
-   }
-   void getDetails(){
-       System.out.println("Name : "+name+" ,Rate of Interest : "+rof);
-   }
-}
-public class Bank {
-   public static void main(String[] args) {
-       bank b = new SBI();
-       b.getDetails();
-       b = new ICICI();
-       b.getDetails();
-       b = new BOI();
-       b.getDetails();
-
-
+public class NestedWhile
+{
+   public static void main(String...args)
+   {
+       int s = 0;
+       int t = 1;
+       int i = 0;
+       while (i < 10)
+       {
+           s = s + i;
+           int j = i;
+           while (j > 0)
+           {
+               t = t * (j - i);
+               j--;
+           }
+           s = s * t;
+           System.out.println("T is " + t);
+           i++;
+       }
+       System.out.println("S is " + s);
    }
 }
 

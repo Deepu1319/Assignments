@@ -1,23 +1,30 @@
-public class Employee {
-      static String firstName;
-      static String lastName;
-      static double age;
+import java.io.*;
+import java.util.Scanner;
 
-      public static void main(String[] args) {
-          getEmployeeDetails();
+public class New
+{
+   static void ConvertSectoDay(int n)
+   {
+       int day = n / (24 * 3600);
+       n = n % (24 * 3600);
+       int hour = n / 3600;
+       n %= 3600;
+       int minutes = n / 60 ;
+       n %= 60;
+       int seconds = n;
+       System.out.println("Convert Data into Days-Hours-Minutes-Seconds");
+       System.out.println( day + " " + "days " + hour
+               + " " + "hours " + minutes + " "
+               + "minutes " + seconds + " "
+               + "seconds ");
+   }
 
-      }
-      static
-      {
-          System.out.println("Hello this is static block");
-          firstName = "Divya";
-          lastName = "kushwaha";
-          age = 23.0;
-      }
-
-      static void getEmployeeDetails(){
-          System.out.println("First name: "+firstName);
-          System.out.println("Last name: "+lastName);
-          System.out.println("Age: "+age);
-      }
+   public static void main (String[] args)
+   {
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Input seconds: ");
+       int seconds = sc.nextInt();
+       ConvertSectoDay(seconds);
+   }
 }
+
