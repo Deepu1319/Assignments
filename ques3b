@@ -1,0 +1,18 @@
+import java.lang.Exception;
+public class _3a
+{
+   static int i=1/0;
+}
+class Example3 {
+   public static void main(String[] args) {
+       try
+       {
+           _3a my = new _3a();
+       }
+       catch(Throwable e)
+       {
+           System.out.print(e);
+       }
+       _3a c = new _3a();
+   }
+}
