@@ -1,38 +1,51 @@
-import java.util.HashMap;
-import java.util.Scanner;
+import java.io.*;
 
-public class Q3CountOccurances {
-   public static void main(String[] args) {
+import java.util.*;
 
-       System.out.println("Please enter a string");
-       Scanner scanner = new Scanner(System.in);
-       String string = scanner.next();
-       int stringLength=string.length();
-       char[] charArray = string.toCharArray();
-       HashMap<Character,Integer> hashmap = new HashMap<>();
-  for (int i = 0; i < stringLength; i++) {
-           char ch = charArray[i];
+class CharacterOccurance {
 
-           if (!hashmap.containsKey(ch)) {
-               hashmap.put(ch,1);
-           }
-           else
-           {
-               int getValue = hashmap.get(ch);
-               getValue++;
-               hashmap.put(ch,getValue);
-           }
+    static void characterCount(String inputString)
 
-       
+    {
 
-       for (Character key : hashmap.keySet()) {
-               System.out.println("Iterating map");
-               System.out.println("key is "+key + " value is "+hashmap.get(key));
-           }
+        HashMap<Character, Integer> charCountMap
 
-       }
+                = new HashMap<Character, Integer>();
 
-   }
+        char[] strArray = inputString.toCharArray();
 
+        for (char c : strArray) {
 
+            if (charCountMap.containsKey(c)) {
 
+                charCountMap.put(c, charCountMap.get(c) + 1);
+
+            }
+
+            else {
+
+                charCountMap.put(c, 1);
+
+            }
+
+        }
+
+        for (Map.Entry entry : charCountMap.entrySet()) {
+
+            System.out.println(entry.getKey() + " " + entry.getValue());
+
+        }
+
+    }
+
+    public static void main(String[] args)
+
+    {
+
+        String str = "  Hi all Welocome!";
+
+        characterCount(str);
+
+    }
+
+}
