@@ -1,30 +1,57 @@
-import java.io.*;
-import java.util.Scanner;
-
-public class New
+import java.util.Stack;
+public class Question7 extends Stack<Integer>
 {
-   static void ConvertSectoDay(int n)
-   {
-       int day = n / (24 * 3600);
-       n = n % (24 * 3600);
-       int hour = n / 3600;
-       n %= 3600;
-       int minutes = n / 60 ;
-       n %= 60;
-       int seconds = n;
-       System.out.println("Convert Data into Days-Hours-Minutes-Seconds");
-       System.out.println( day + " " + "days " + hour
-               + " " + "hours " + minutes + " "
-               + "minutes " + seconds + " "
-               + "seconds ");
+
+   Stack<Integer> integerStack = new Stack<>();
+
+   void push(int x){
+
+       if(isEmpty() == true){
+           super.push(x);
+           integerStack.push(x);
+       }else{
+
+           super.push(x);
+           int y = integerStack.pop();
+           integerStack.push(y);
+
+           if(x < y){
+               integerStack.push(x);
+   }
+           else {
+               integerStack.push(y);
+           }
+
+       }
+
+  }
+
+   public Integer pop(){
+       int x = super.pop();
+       integerStack.pop();
+       return x;
    }
 
-   public static void main (String[] args)
-   {
-       Scanner sc = new Scanner(System.in);
-       System.out.print("Input seconds: ");
-       int seconds = sc.nextInt();
-       ConvertSectoDay(seconds);
+   int getMin(){
+       int x = integerStack.pop();
+       integerStack.pop();
+       return x;
    }
+
+   public static void main(String[] args) {
+
+       Question7 ques = new Question7();
+       ques.push(10);
+       ques.push(20);
+       ques.push(30);
+       System.out.println("Elements in stack "+ques);
+       System.out.println("Minimum "+ques.getMin());
+       ques.push(62);
+       ques.push(2);
+       System.out.println("After pushing 62 and 2..Stack is"+ques);
+       System.out.println("Now minimum is "+ques.getMin());
+
+  }
+
 }
 

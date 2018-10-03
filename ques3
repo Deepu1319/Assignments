@@ -1,16 +1,16 @@
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Q2UniqueCharacters {
+public class Q3CountOccurances {
    public static void main(String[] args) {
+
        System.out.println("Please enter a string");
        Scanner scanner = new Scanner(System.in);
        String string = scanner.next();
        int stringLength=string.length();
-   char[] charArray = string.toCharArray();
+       char[] charArray = string.toCharArray();
        HashMap<Character,Integer> hashmap = new HashMap<>();
-
-       for (int i = 0; i < stringLength; i++) {
+  for (int i = 0; i < stringLength; i++) {
            char ch = charArray[i];
 
            if (!hashmap.containsKey(ch)) {
@@ -22,17 +22,17 @@ public class Q2UniqueCharacters {
                getValue++;
                hashmap.put(ch,getValue);
            }
- }
+
+       
 
        for (Character key : hashmap.keySet()) {
-           if(hashmap.get(key)==1)
-           {
                System.out.println("Iterating map");
-               System.out.println("unique key is "+key);
+               System.out.println("key is "+key + " value is "+hashmap.get(key));
            }
 
        }
+
    }
-}
+
 
 

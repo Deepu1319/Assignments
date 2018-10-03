@@ -1,52 +1,68 @@
-public class Employee1 implements Cloneable {
-    private int id;
-    private String name;
-    private Double salary;
-    private String designation;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-    Employee1(int empId, String empName, Double empSalary, String empDesignation)
-    {
-        this.id = empId;
-        this.name = empName;
-        this.salary = empSalary;
-        this.designation = empDesignation;
-    }
+class Q5Student
+{
+   private String name;
+   private double score;
+   private double age;
 
-    Employee1(Employee1 emp)
-    {
-        this.id = emp.id;
-        this.name = emp.name;
-        this.salary = emp.salary;
-        this.designation = emp.designation;
-    }
+   public Q5Student(String name, double score, double age) {
+       this.name = name;
+       this.score = score;
+       this.age = age;
+   }
 
-    public Object clone()throws CloneNotSupportedException{
-        return super.clone();
-    }
+   @Override
+   public String toString() {
+       return "\n Q5Student{" +
+               "name='" + name + '\'' +
+               ", score=" + score +
+               ", age=" + age +
+     '}';
+   }
 
-    public static void main(String[] args) {
-        Employee1 employeeOne = new Employee1(1, "Divya", 15000.5, "JVM");
-        Employee1 employeeTwo = new Employee1(employeeOne);
-        System.out.println(employeeOne.id+" "+employeeOne.name + " "+" "+employeeOne.designation +" "+ employeeOne.designation);
-        System.out.println("Data from copy constructor");
-        System.out.println(employeeTwo.id+" "+employeeTwo.name + " "+" "+employeeTwo.designation +" "+ employeeTwo.designation);
+   public String getName() {
+       return name;
+   }
 
-        try
-        {
-            Employee1 employeeThree = new Employee1(2, "Vaishnavi", 12000.56, "JVM");
-            Employee1 employeeFour = (Employee1) employeeThree.clone();
-            System.out.println(employeeThree.id+" "+employeeThree.name + " "+" "+employeeThree.designation +" "+ employeeThree.designation);
-            System.out.println("Data from clonable interface");
-            System.out.println(employeeFour.id+" "+employeeFour.name + " "+" "+employeeFour.designation +" "+ employeeFour.designation);
-        }
+   public void setName(String name) {
+       this.name = name;
+   }
 
-        catch(CloneNotSupportedException cns)
-        {
-            System.out.println("Exception caught" +cns);
+   public double getScore() {
+       return score;
+   }
 
-        }
+   public void setScore(double score) {
+       this.score = score;
+ }
 
-    }
+   public double getAge() {
+       return age;
+   }
 
+   public void setAge(double age) {
+       this.age = age;
+   }
+}
+
+public class Q5Main
+{
+   public static void main(String[] args) {
+       {
+           List<Q5Student> q5StudentList=new ArrayList<Q5Student>();
+           q5StudentList.add(new Q5Student("Roma",90.88,23.0));
+           q5StudentList.add(new Q5Student("Roma",70.88,29.0));
+           q5StudentList.add(new Q5Student("Rohan",90.88,21.0));
+           q5StudentList.add(new Q5Student("Richa",20.88,28.0));
+
+           System.out.println(q5StudentList);
+           Comparator<Q5Student> comparator= Comparator.comparing(Q5Student::getScore).thenComparing(Q5Student::getName);
+           System.out.println("After sorting");
+           System.out.println(q5StudentList);
+       }
+   }
 }
 

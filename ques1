@@ -1,56 +1,23 @@
-interface librarian
-{
-   void issuedBookDetails();
-   void calculateFine();
-}
-interface member
-{
-   void issuedBooks();
-   void finePayment();
-}
-abstract class Admin
-{
-   String name;
-   int id;
-   abstract void dailyOperations();
-   void coordination()
-   {
-       System.out.println("provides coordination");
-   }
-   public Admin(int id, String name)
-   {
-       this.id=id;
-       this.name=name;
-   }
-}
-class  libraryManagement extends Admin implements librarian,member
-{
-   @Override
-   public void issuedBookDetails()
-   {    }
-   @Override
-   public void calculateFine()
-   {    }
-   @Override
-   public void issuedBooks()
-   {    }
-   @Override
-   public void finePayment()
-   {    }
-   public void dailyOperations()
-   {
- System.out.println("Admin perform various operation");
-   }
-   libraryManagement(int i,String n)
-   {
-       super(i,n);
-   }
-   public static  void main(String[]args){
-       libraryManagement l=new libraryManagement(1,"ram");
-       System.out.println(l.name+" "+l.id);
-       libraryManagement l1=new libraryManagement(2,"mohan");
-       System.out.println(l1.name+" "+l1.id);
-       l.dailyOperations();
+import java.util.*;
+import java.util.ArrayList;
+
+public class Q1List {
+
+   public static void main(String[] args) {
+       ArrayList<Float> list = new ArrayList<Float>();
+       list.add(4.669F);
+       list.add(8.5F);
+       list.add(5.7F);
+
+       Iterator<Float> itr = list.iterator();
+       {
+           float sum = 0;
+           for (float i : list) {
+               sum += i;
+           }
+           System.out.println(sum);
+
+       }
    }
 }
 
