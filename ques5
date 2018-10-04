@@ -1,68 +1,105 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
-class Q5Student
-{
-   private String name;
-   private double score;
-   private double age;
+class Student implements Comparable<Student> {
 
-   public Q5Student(String name, double score, double age) {
-       this.name = name;
-       this.score = score;
-       this.age = age;
-   }
+    public String name;
 
-   @Override
-   public String toString() {
-       return "\n Q5Student{" +
-               "name='" + name + '\'' +
-               ", score=" + score +
-               ", age=" + age +
-     '}';
-   }
+    public double age;
 
-   public String getName() {
-       return name;
-   }
+    public double score;
 
-   public void setName(String name) {
-       this.name = name;
-   }
+    public Student(String name, double age, double score){
 
-   public double getScore() {
-       return score;
-   }
+        this.name = name;
 
-   public void setScore(double score) {
-       this.score = score;
- }
+        this.age = age;
 
-   public double getAge() {
-       return age;
-   }
+        this.score = score;
 
-   public void setAge(double age) {
-       this.age = age;
-   }
+    }
+
+    public int compareTo(Student s){
+
+        if(this.score == s.score){
+
+            return 0;
+
+        } else if(this.score < s.score){
+
+            return -1;
+
+        } else {
+
+            return +1;
+
+        }
+
+    }
+
+    //get the methods for accessing the private data
+
+    public String getName() { return name;}
+
+    public double getAge() { return age;}
+
+    public double getScore() { return score;}
+
 }
 
-public class Q5Main
-{
-   public static void main(String[] args) {
-       {
-           List<Q5Student> q5StudentList=new ArrayList<Q5Student>();
-           q5StudentList.add(new Q5Student("Roma",90.88,23.0));
-           q5StudentList.add(new Q5Student("Roma",70.88,29.0));
-           q5StudentList.add(new Q5Student("Rohan",90.88,21.0));
-           q5StudentList.add(new Q5Student("Richa",20.88,28.0));
+//class to compare employee object by salary
 
-           System.out.println(q5StudentList);
-           Comparator<Q5Student> comparator= Comparator.comparing(Q5Student::getScore).thenComparing(Q5Student::getName);
-           System.out.println("After sorting");
-           System.out.println(q5StudentList);
-       }
-   }
+class ScoreCompare implements Comparator<Student> {
+
+    public int compare(Student s1, Student s2) {
+
+        if (s1.getScore() < s2.getScore()) return -1;
+
+        if (s1.getScore() > s2.getScore()) return 1;
+
+        else return 0;
+
+    }
+
+    class NameCompare implements Comparator<Student> {
+
+        public int compare(Student s1, Student s2) {
+
+            return s1.getName().compareTo(s2.getName());
+
+        }
+
+    }
+
 }
+
+public class StudentClass {
+
+    public static void main(String[] args) {
+
+        ArrayList<Student> list = new ArrayList<Student>();
+
+        list.add(new Student("Divya", 23, 76));
+
+        list.add(new Student("Swati", 25, 90));
+
+        list.add(new Student("Ravi", 26, 78));
+
+        list.add(new Student("Sourabh", 21, 76));
+
+        list.add(new Student("Ritesh", 22, 75));
+
+        System.out.println("Sort by score");
+
+        ScoreCompare scoreCompare = new ScoreCompare();
+
+        Collections.sort(list);
+
+        for (Student s : list)
+
+            System.out.println(s.getName() + " " + s.getAge() + " " + s.getScore());
+
+    }
+
+}
+
 
